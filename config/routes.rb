@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     collection do
       delete :clean
     end
+
+    resources :items, :controller => "cart_items"
+    
   end
+
+
 
   root :to => "products#index"
 
