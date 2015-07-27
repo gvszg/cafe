@@ -2,13 +2,14 @@
 #
 # Table name: orders
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  total      :integer          default(0)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  token      :string
-#  is_paid    :boolean          default(FALSE)
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  total          :integer          default(0)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  token          :string
+#  is_paid        :boolean          default(FALSE)
+#  payment_method :string
 #
 # Indexes
 #
@@ -26,6 +27,14 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :info
 
   has_many :items, :class_name => "OrderItem", :dependent => :destroy
+
+  def pay!
+    self.update_column(:is_paid, true )
+  end
+
+  def set_payment_with!(method)
+    self.update_column(:payment_method, method )
+  end
 
   def paid?
     is_paid
