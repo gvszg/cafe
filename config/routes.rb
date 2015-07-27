@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     
   end
 
-
+  resources :orders
 
   root :to => "products#index"
 
