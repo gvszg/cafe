@@ -7,9 +7,16 @@
 #  total      :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  token      :string
+#
+# Indexes
+#
+#  index_orders_on_token  (token)
 #
 
 class Order < ActiveRecord::Base
+
+  before_create :generate_token
 
   belongs_to :user
 
@@ -18,6 +25,10 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :info
 
   has_many :items, :class_name => "OrderItem", :dependent => :destroy
+
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
 
   def build_item_cache_from_cart(cart)
     cart.items.each do |cart_item|
