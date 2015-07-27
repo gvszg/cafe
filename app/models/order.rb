@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  token      :string
+#  is_paid    :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -25,6 +26,10 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :info
 
   has_many :items, :class_name => "OrderItem", :dependent => :destroy
+
+  def paid?
+    is_paid
+  end
 
   def generate_token
     self.token = SecureRandom.uuid
