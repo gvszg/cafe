@@ -93,4 +93,6 @@ class Order < ActiveRecord::Base
     self.save
   end
   
+  scope :recent, -> { order("id DESC")}
+  
 end
