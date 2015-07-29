@@ -12,7 +12,7 @@ module Account::OrdersHelper
       service.item_name           "order_sample"
       service.choose_payment      payment_gateway_type(payment_type)
       service.client_back_url     root_url
-      service.return_url          root_url
+      service.return_url          allpay_notify_order_url(order.token, type: payment_type)
       service.encrypted_data
 
       submit_tag t("orders.payment_type.#{payment_type}") , name: nil, class: "btn btn-lg btn-danger btn-group"
@@ -32,5 +32,5 @@ module Account::OrdersHelper
       ActiveMerchant::Billing::Integrations::Allpay::PAYMENT_ATM
     end
   end
-  
+
 end
