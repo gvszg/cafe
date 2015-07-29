@@ -9,11 +9,17 @@ gem "bootstrap-sass"
 
 gem "simple_form"
 
-gem "annotate"
+
 
 gem "font-awesome-rails"
 
 gem "aasm"
+
+group :development do
+  gem "annotate"
+  gem "letter_opener"
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
