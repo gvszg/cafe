@@ -18,6 +18,7 @@ gem "aasm"
 group :development do
   gem "annotate"
   gem "letter_opener"
+  gem 'sqlite3'
 end
 
 gem 'roadie', "2.4.3"
@@ -25,11 +26,15 @@ gem 'roadie', "2.4.3"
 gem 'activemerchant', "~> 1.43.3"
 gem 'active_merchant_allpay', '>=0.1.2'
 
+group :production do
+  gem "pg"
+  gem "rails_12factor"
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
