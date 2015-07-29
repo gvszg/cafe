@@ -1,8 +1,14 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.integration_mode = :development
+  end
+
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :letter_opener
+
+  # Settings specified here will take precedence over those in config/application.rb.
   
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
