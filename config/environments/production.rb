@@ -4,7 +4,16 @@ Rails.application.configure do
     ActiveMerchant::Billing::Base.integration_mode = :development # 取得正式 key 以後再改成:production
   end
 
-
+  config.action_mailer.default_url_options = { host: 'cafe-sample.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:           587,
+    address:        "smtp.mailgun.org",
+    user_name:      "postmaster@sandboxde7d688d4e4041f2ae8eeb80fcb58a5c.mailgun.org",
+    password:       "3437c590119d845213d055ca3e015736", 
+    domain:         "sandboxde7d688d4e4041f2ae8eeb80fcb58a5c.mailgun.org",
+    authentication: :plain,
+  }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
