@@ -20,8 +20,6 @@
 
 class Order < ActiveRecord::Base
 
-  before_create :generate_token
-
   belongs_to :user
 
   has_one :info, class_name: "OrderInfo", dependent: :destroy
@@ -74,9 +72,7 @@ class Order < ActiveRecord::Base
     is_paid
   end
 
-  def generate_token
-    self.token = SecureRandom.uuid
-  end
+  include Tokenable
 
   def build_item_cache_from_cart(cart)
     cart.cart_items.each do |cart_item|
