@@ -10,6 +10,6 @@ zh-TW:
       good_returned: 退貨
 
     payment_type:
-      credit_card: "信用卡付款"
-      cvs: "超商付款"
-      atm: "ATM 付款"
+      credit_card: 信用卡付款
+      cvs: 超商付款
+      atm: ATM付款

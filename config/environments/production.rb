@@ -7,8 +7,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'cafe-sample.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    port:           587,
-    address:        "smtp.mailgun.org",
+    port:           ENV["MAILGUN_PORT"],
+    address:        ENV["MAILGUN_ADDRESS"],
     user_name:      ENV["MAILGUN_USER"],
     password:       ENV["MAILGEN_KEY"], 
     domain:         ENV["MAILGUN_DOMAIN"],

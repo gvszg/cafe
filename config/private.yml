@@ -1,0 +1,6 @@
+production:
+  port: MAILGUN_PORT
+  address: MAILGUN_ADDRESS
+  user_name: MAILGUN_USER
+  password: MAILGEN_KEY
+  domain: MAILGUN_DOMAIN
