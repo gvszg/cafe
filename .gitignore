@@ -17,6 +17,6 @@
 /tmp
 
 config/database.yml
-confug/private.yml
+config/private.yml
 
 public/uploads
